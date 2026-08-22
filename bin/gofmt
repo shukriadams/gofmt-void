@@ -2,3 +2,21 @@
 
 # nothing else to see here yet
 # overwrite /usr/local/go/bin/gofmt and make executable
+
+import sys
+import os
+import codecs
+
+write_to_file=False
+for arg in sys.argv:
+    if arg == '-w':
+        write_to_file=True
+        break
+
+if not write_to_file and len(sys.argv) > 0:
+    target_file = sys.argv[1]
+    if os.path.isfile(target_file):
+        with codecs.open(target_file, encoding='utf-8') as file:
+            file_content = file.read()
+            print(file_content)
+
