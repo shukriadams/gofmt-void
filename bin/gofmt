@@ -7,6 +7,17 @@ import sys
 import os
 import codecs
 
+log_file=''
+log_file_path='/tmp/gofmt_void.log'
+if os.path.isfile(log_file_path):
+    with codecs.open(log_file_path, encoding='utf-8') as file:
+        log_file = file.read()
+
+args_flat = ' // '.join(sys.argv)
+log_file= f'{log_file}\n{args_flat}'
+with open(log_file_path, 'w') as output:
+    output.write(log_file)
+
 write_to_file=False
 for arg in sys.argv:
     if arg == '-w':
