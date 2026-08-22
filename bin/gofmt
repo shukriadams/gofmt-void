@@ -1,0 +1,4 @@
+#!/usr/bin/env python3
+
+# nothing else to see here yet
+# overwrite /usr/local/go/bin/gofmt and make executable
